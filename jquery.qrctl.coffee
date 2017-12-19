@@ -128,4 +128,4 @@ class jqueryQrctl extends jQueryPlugIn
     return
 
 # Installing the plugin as 'SimpleTabs'
-ngxQrCtl.installAsjQueryPlugIn()
+jqueryQrctl.installAsjQueryPlugIn()

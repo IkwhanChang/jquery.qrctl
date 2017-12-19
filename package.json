@@ -1,7 +1,7 @@
 {
-  "name": "jquery.qrctl.server",
+  "name": "jquery.qrctl",
   "version": "1.0.0",
-  "description": "jQuery QR Control Plugin - Web Socket Server",
+  "description": "jQuery QR Control Plugin",
   "dependencies": {
     "express": "^4.9.4",
     "jade": "^1.7.0",

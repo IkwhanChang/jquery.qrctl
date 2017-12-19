@@ -1,0 +1,7 @@
+{
+  "name": "jquery.qrctl",
+  "description": "jQuery QR Control Plugin.",
+  "repository": "https://github.com/IkwhanChang/jquery.qrctl",
+  "keywords": ["node", "express", "twitter", "heroku"],
+  "image": "heroku/nodejs"
+}
