@@ -4,6 +4,10 @@ var io = require('socket.io')(http);
 
 app.set('view engine', 'jade');
 
+app.get('/', function(req, res) {
+	res.send('hello world');
+});
+
 app.get('/c/:siteID', function(req, res){
 	 res.render('controller', { siteID: req.params.siteID});
 });
