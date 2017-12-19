@@ -78,7 +78,7 @@
       height: 50,
       color: "#3a3",
       background: "#fff",
-      surl: 'https://jquery-qrctl.herokuapp.com:3000',
+      surl: 'https://jquery-qrctl.herokuapp.com',
       debug: false
     };
 
@@ -97,7 +97,7 @@
             "height": ext.options.height,
             "color": ext.options.color,
             "background": ext.options.background,
-            "text": "https://jquery-qrctl.herokuapp.com:3000/c/" + encodeURIComponent(siteID)
+            "text": "https://jquery-qrctl.herokuapp.com/c/" + encodeURIComponent(siteID)
           });
         });
         Socket.on('move', function(event) {
