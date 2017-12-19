@@ -8,13 +8,13 @@ app.get('/c/:siteID', function(req, res){
 	 res.render('controller', { siteID: req.params.siteID});
 });
 
-var devices = [];  
-var sites = [];  
+var devices = [];
+var sites = [];
 var clients = [];
 
 io.on('connection', function(client) {
 	client.on("join", function(type,siteID) {
-		
+
 		if(type == "site"){
 			sites.push(client);
 			client.emit('join ok',client.id);
@@ -25,14 +25,14 @@ io.on('connection', function(client) {
 				if(sites[i].id == siteID){
 					var tdevice = {"site":sites[i], "client":client};
 					devices.push(tdevice);
-					break;					
+					break;
 				}
 			}
 		}
 	});
-	
+
 	client.on("exit", function(type,siteID) {
-		
+
 		if(type == "site"){
 			sites.push(client);
 			for(var i in sites) {
@@ -51,7 +51,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// Simple Moving
 	client.on('move control', function(event) {
 		for(var i in devices) {
@@ -60,7 +60,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// Button Down
 	client.on('button down', function(event) {
 
@@ -71,7 +71,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// SWipe Left
 	client.on('swipeleft', function() {
 		console.log("swipeleft");
@@ -81,7 +81,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// SWipe Right
 	client.on('swiperight', function() {
 		console.log("swiperight");
@@ -91,7 +91,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// SWipe Up
 	client.on('swipeup', function() {
 		console.log("swipeup");
@@ -101,7 +101,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// SWipe Down
 	client.on('swipedown', function() {
 		console.log("swipedown");
@@ -111,7 +111,7 @@ io.on('connection', function(client) {
 			}
 		}
 	});
-	
+
 	// Gyro Moving 우선 제거.
 	client.on('gyro control', function(event) {
 		for(var i in devices) {
@@ -123,6 +123,6 @@ io.on('connection', function(client) {
 
 });
 
-http.listen(3000, function() {
-	console.log('listening on *:3000');
+http.listen(80, function() {
+	console.log('listening on *:80');
 });
