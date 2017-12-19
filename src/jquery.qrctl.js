@@ -87,7 +87,7 @@
       this.element = element;
       jqueryQrctl.__super__.constructor.call(this, this.element, options);
       ext = this;
-      $.getScript(this.options.surl + "socket.io/socket.io.js", function(data, textStatus, jqxhr) {
+      $.getScript(this.options.surl + "/socket.io/socket.io.js", function(data, textStatus, jqxhr) {
         Socket = io.connect(options.surl);
         Socket.emit('join', 'site');
         Socket.on('join ok', function(siteID) {
@@ -97,7 +97,7 @@
             "height": ext.options.height,
             "color": ext.options.color,
             "background": ext.options.background,
-            "text": "https://jquery-qrctl.herokuapp.com/c/" + encodeURIComponent(siteID)
+            "text": ext.options.surl + "/c/" + encodeURIComponent(siteID)
           });
         });
         Socket.on('move', function(event) {

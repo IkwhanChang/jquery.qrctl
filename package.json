@@ -10,7 +10,6 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.9.4",
     "jade": "^1.7.0",
     "jquery": "^3.2.1",
     "socket.io": "^1.1.0"
@@ -24,5 +23,8 @@
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.2"
+  }
 }

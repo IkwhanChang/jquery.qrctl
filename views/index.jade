@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    title jQuery QR Control Demo Page
+    meta(charset="utf-8")
+    meta(name="viewport",width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0)
+  body(id="qr_area")
+    canvas(id="testGame",width="800",height="600")
+
+    script(type='text/javascript',src='//code.jquery.com/jquery-1.11.1.min.js')
+    script(type='text/javascript',src='bower_components/jquery-qrcode/dist/jquery-qrcode.min.js')
+    script(type='text/javascript',src='src/jquery.qrctl.js')
+    script(type='text/javascript').
+      $( "#qr_area" ).jqueryQrctl({
+          'position':'top',
+          'width':10,
+          'height':10,
+          'debug':true
+      });
+
+      $('#qr_area').bind('swipeleft',function(event) {
+         alert("!!");
+      });
+
+      $('#qr_area').bind('btnDown',function(event,key){
+          console.log(key);
+      });
+
+      $('#qr_area').bind('move',function(event,x,y){
+          $.moveCircle(x,y);
+      });
+
+      // Test
+      var canvas = document.getElementById('testGame');
+      var context = canvas.getContext('2d');
+      var centerX = canvas.width / 2;
+      var centerY = canvas.height / 2;
+      var radius = 70;
+
+      $.init = function() {
+          context.beginPath();
+          context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+          context.fillStyle = 'green';
+          context.fill();
+          context.lineWidth = 5;
+          context.strokeStyle = '#003300';
+          context.stroke();
+      }
+
+      $.moveCircle = function(x,y) {
+          // Clear Canvas
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.beginPath();
+          context.arc(x, y, radius, 0, 2 * Math.PI, false);
+          context.fillStyle = 'green';
+          context.fill();
+          context.lineWidth = 5;
+          context.strokeStyle = '#003300';
+          context.stroke();
+      }
+
+      $.init();

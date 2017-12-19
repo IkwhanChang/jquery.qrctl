@@ -75,7 +75,7 @@ class jqueryQrctl extends jQueryPlugIn
     ext = this
 
     #Init Socket
-    $.getScript @options.surl+"socket.io/socket.io.js", (data, textStatus, jqxhr) ->
+    $.getScript @options.surl+"/socket.io/socket.io.js", (data, textStatus, jqxhr) ->
       #Setting Socket.io functions
       Socket = io.connect(options.surl)
       Socket.emit('join','site');
@@ -88,7 +88,7 @@ class jqueryQrctl extends jQueryPlugIn
           "height": ext.options.height,
           "color": ext.options.color,
           "background":ext.options.background,
-          "text": "https://jquery-qrctl.herokuapp.com/c/"+encodeURIComponent(siteID)
+          "text": @options.surl+"/c/"+encodeURIComponent(siteID)
         });
         return
 

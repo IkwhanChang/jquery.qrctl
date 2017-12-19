@@ -1,12 +1,16 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.set('view engine', 'jade');
 app.set('port', (process.env.PORT || 5000));
 
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
+app.use('/src', express.static(__dirname + '/src'));
+
 app.get('/', function(req, res) {
-	res.send('hello world');
+	res.render('index');
 });
 
 app.get('/c/:siteID', function(req, res){
