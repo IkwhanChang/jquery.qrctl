@@ -22,14 +22,13 @@ Our goal is to provide a single system that allows more diverse web UXs to come 
 
 ## Installation
 
-1. you need to lasjng( http://larsjung.de )'s jquery qrcode plugin.
-- download http://larsjung.de/jquery-qrcode/ and move into plugin folder
+1. Install dependencies: npm install && bower install
 
 2. Add to below script code end of body tag
 ```javascript
 </body>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="jquery.qrcode-0.11.0.min.js"></script>
+<script src="bower_components/jquery-qrcode/dist/jquery.qrcode.min.js"></script>
 <script src="jquery.qrctl.js"></script>
 ```
 3. Make default jQuery QR Control Selector
@@ -46,10 +45,26 @@ $( "#qr_area" ).jqueryQrctl({
 ```
 5. Now you can using user's remote control action via event handler
 
-##### example) if user touch their ngx controller, the 'move' action will be happened. (the other event will be attached)
+#### Client event binding example
 ```javascript
+
+// When user move his/her finger, touched coordinates will be arrived
 $('#qr_area').bind('move',function(event,x,y){
     $.moveCircle(x,y);
+})
+
+// When user swipe his/her device to the left or right, swipeleft or swiperight action will be arrived
+$('#qr_area').bind('swipeleft',function(event) {
+   alert("swipe left!");
+});
+
+$('#qr_area').bind('swiperight',function(event) {
+   alert("swipe right!");
+});
+
+// When user touch the custom button with binded key,'btnDown' action with key will be arrived
+$('#qr_area').bind('btnDown',function(event,key){
+    alert(key+ "is entered!");
 });
 ```
 
