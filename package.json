@@ -2,10 +2,27 @@
   "name": "jquery.qrctl",
   "version": "1.0.0",
   "description": "jQuery QR Control Plugin",
+  "engines": {
+    "node": "6.10.2"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "express": "^4.9.4",
     "jade": "^1.7.0",
     "jquery": "^3.2.1",
     "socket.io": "^1.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IkwhanChang/jquery.qrcode"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
